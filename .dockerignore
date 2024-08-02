@@ -1,0 +1,11 @@
+.git
+.git/*
+*temp*
+temp
+*temp
+temp*
+Dockerfile
+Dockerfile.local
+Dockerfile.build
+.dockerignore
+npm-debug.log

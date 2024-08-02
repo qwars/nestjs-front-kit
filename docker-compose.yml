@@ -1,0 +1,32 @@
+networks:
+  webapp-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  restapi:
+    build:
+      context: ./
+      dockerfile: Dockerfile.local
+    image: node:18-alpine
+    working_dir: /usr/src/restapi
+    container_name: restapi
+    networks:
+      - webapp-network
+    ports:
+      - 3002:3000
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/usr/src/restapi:rw
+    command: "yarn start:dev"
