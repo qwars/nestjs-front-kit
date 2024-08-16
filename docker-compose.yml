@@ -5,6 +5,7 @@ networks:
 services:
   postgres:
     image: postgres:15
+    container_name: postgres
     environment:
       - POSTGRES_DB
       - POSTGRES_USER
@@ -14,19 +15,35 @@ services:
     ports:
       - "5432:5432"
 
-  restapi:
+  backend:
     build:
       context: ./
       dockerfile: Dockerfile.local
     image: node:18-alpine
-    working_dir: /usr/src/restapi
-    container_name: restapi
+    working_dir: /usr/src/application
+    container_name: backend
     networks:
       - webapp-network
     ports:
-      - 3002:3000
+      - "3002:3000"
     depends_on:
+      - frontend
       - postgres
     volumes:
-      - ./:/usr/src/restapi:rw
-    command: "yarn start:dev"
+      - ./:/usr/src/application:rw
+    command: "yarn start:backend"
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.local
+    image: node:18-alpine
+    working_dir: /usr/src/application
+    container_name: frontend
+    networks:
+      - webapp-network
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./:/usr/src/application:rw
+    command: "yarn start:frontend --port 9090 --client-overlay --static-reset"

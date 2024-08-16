@@ -4,9 +4,6 @@
 Выполняет все структурные изменения входящих данных, 
 делает анализ данных и преобразования данных для сохранения в базе бэка.
 
-Конфиги и описание для разработки фронта с imba@1.5.2 - `config/imba.example`
-Конфиги и описание для разработки фронта с react - `config/react.example`
-
 > **NOTE**: В этой ветке используется imba
 
 # PostgreSQL
@@ -26,7 +23,10 @@ $ echo "POSTGRES_DB=..." >> .env && echo "POSTGRES_USER=..." >> .env && echo "PO
 
 # Запуск разработки
 
-1. Сборка контейнера - `$ docker compose build` или `$ docker compose --env-file .env build`
+1. Сборка контейнера - `$ docker compose run backend sh` и запустить 
+   ```sh
+      # yarn install
+    ```
 2. Запуск контейнера - `$ docker compose --env-file .env up -d`, или `$ docker compose up -d`  или `$ docker compose start`
 3. Остановка работы контейнеров  - `$ docker compose down` или `$ docker compose stop`
 4. Вход в контейнеры - `docker compose run --user $(id -u):$(id -g) .... sh`

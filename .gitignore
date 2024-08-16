@@ -398,4 +398,6 @@ Temporary Items
 dist
 public
 .webpack
+pgdata/*
 .serverless/**/*.zip
+yarn.*
