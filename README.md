@@ -33,3 +33,4 @@ $ echo "POSTGRES_DB=..." >> .env && echo "POSTGRES_USER=..." >> .env && echo "PO
     > **NOTE**: Презварительно добавить в `.env` ```bash
     $ echo "UID=$(id -u)" >> .env && echo "GID=$(id -g)" >> .env
     ```
+5. В браузере http://localhost:3002
