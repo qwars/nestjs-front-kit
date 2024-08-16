@@ -1,4 +1,5 @@
 {
+  "exclude": ["develop"],
   "compilerOptions": {
     "jsx": "react",
     "module": "commonjs",
