@@ -118,8 +118,8 @@ module.exports = (env, argv) => {
       }),
 
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css',
+        filename: 'styleshets/[name].[contenthash:8].css',
+        chunkFilename: 'styleshets/[name].[contenthash:8].css',
       }),
       !!env.stats && new BundleAnalyzerPlugin(),
       new ReactRefreshWebpackPlugin({ overlay: false }),
