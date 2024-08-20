@@ -17,6 +17,8 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js', 'pgdata', 'public', 'dist', 'node_modules'],
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+    'import/no-commonjs': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
