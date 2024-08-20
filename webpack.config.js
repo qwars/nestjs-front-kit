@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
     devServer: {
       compress: true,
       devMiddleware: {
-        writeToDisk: true
+        writeToDisk: true,
       },
       historyApiFallback: true,
     },
@@ -62,7 +62,7 @@ module.exports = (env, argv) => {
                 ],
                 plugins: [
                   require.resolve('react-refresh/babel'),
-                  'babel-plugin-styled-components'
+                  'babel-plugin-styled-components',
                 ].filter(Boolean),
               },
             },
@@ -98,23 +98,26 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      process.env.npm_lifecycle_event.includes("build")
+      process.env.npm_lifecycle_event.includes('build')
         ? new Dotenv()
         : new webpack.DefinePlugin({
-          "process.env": JSON.stringify({
-            ...argv,
-            ...Object.fromEntries(
-              Object.entries(process.env).filter((item) =>
-                item[0].match(/^[A-Z]/)
-              )
-            ),
+            'process.env': JSON.stringify({
+              ...argv,
+              ...Object.fromEntries(
+                Object.entries(process.env).filter((item) =>
+                  item[0].match(/^[A-Z]/),
+                ),
+              ),
+            }),
           }),
-        }),
 
       new HtmlWebpackPlugin({
         title: '',
         favicon: './favicon.ico',
-        meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no', ...MetaTags },
+        meta: {
+          viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+          ...MetaTags,
+        },
       }),
 
       new MiniCssExtractPlugin({
@@ -128,7 +131,7 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
       alias: {
-        '@components': __dirname + '/develop/components'
+        '@components': __dirname + '/develop/components',
       },
     },
   };
