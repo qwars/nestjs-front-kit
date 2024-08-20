@@ -4,9 +4,9 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require("dotenv-webpack");
+const Dotenv = require('dotenv-webpack');
 
-const MetaTags = { author: 'Alexandr Selunin; selunin@dev.vtb.ru' };
+const MetaTags = { author: 'Alexandr Selunin; aka.qwars@gmail.com' };
 
 module.exports = (env, argv) => {
   return {
