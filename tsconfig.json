@@ -1,5 +1,7 @@
 {
+  "exclude": ["develop", "public"],
   "compilerOptions": {
+    "jsx": "react",
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,

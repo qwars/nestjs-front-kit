@@ -1,0 +1,15 @@
+html,
+body,
+main,
+main > article {
+  height: -webkit-fill-available;
+  height: fill-available;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  @media (max-width: 1024px) {
+    &:not(article) {
+      overflow: auto;
+    }
+  }
+}
